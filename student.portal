@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10172a">
+  <title>CampusBuddy AI | Smart Campus</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#home">
+      <span class="brand-icon">✦</span>
+      <span>Campus<span class="accent">Buddy</span><small>AI CAMPUS ASSISTANT</small></span>
+    </a>
+
+    <p class="nav-label">WORKSPACE</p>
+    <nav>
+      <a class="nav-link active" href="#home">◫ <span>Overview</span></a>
+      <a class="nav-link" href="#report">＋ <span>Report an Issue</span></a>
+      <a class="nav-link" href="#assistant">✧ <span>AI Assistant</span></a>
+      <a class="nav-link" href="#tracker">▤ <span>Issue Tracker</span></a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="online-dot"></div>
+      <div><strong>Gemma 4</strong><small>Local AI integration</small></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar" id="home">
+      <div>
+        <p class="eyebrow">YOUR CAMPUS, YOUR VOICE</p>
+        <h1>Campus Dashboard <span class="wave">✦</span></h1>
+        <p class="muted">Make your campus better, one report at a time.</p>
+      </div>
+      <div class="top-right">
+        <span class="date-label" id="today"></span>
+        <div class="avatar">S</div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-tag">✦ SMART CAMPUS INITIATIVE</span>
+        <h2>A better campus<br>starts <span>with you.</span></h2>
+        <p>Report issues, get AI-powered guidance, and help create a campus where everyone can thrive.</p>
+        <a href="#report" class="hero-btn">Report a Problem <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="art-circle">🏫</div>
+        <span class="float-icon float-one">💡</span>
+        <span class="float-icon float-two">✓</span>
+        <span class="float-icon float-three">✦</span>
+      </div>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card">
+        <div class="stat-top"><span>Total Issues</span><span class="stat-icon purple">▤</span></div>
+        <h2 id="totalCount">0</h2><p>All submitted reports</p>
+      </article>
+      <article class="stat-card">
+        <div class="stat-top"><span>Pending</span><span class="stat-icon orange">◷</span></div>
+        <h2 id="pendingCount">0</h2><p>Awaiting attention</p>
+      </article>
+      <article class="stat-card">
+        <div class="stat-top"><span>In Progress</span><span class="stat-icon blue">↗</span></div>
+        <h2 id="progressCount">0</h2><p>Being addressed</p>
+      </article>
+      <article class="stat-card">
+        <div class="stat-top"><span>Resolved</span><span class="stat-icon green">✓</span></div>
+        <h2 id="resolvedCount">0</h2><p>Issues completed</p>
+      </article>
+    </section>
+
+    <section class="workspace">
+      <article class="panel report-panel" id="report">
+        <div class="section-title">
+          <div><span class="section-kicker">TAKE ACTION</span><h2>Report an Issue</h2>
+          <p>Give us the details. Let's fix it.</p></div>
+          <span class="title-icon">＋</span>
+        </div>
+
+        <form id="issueForm">
+          <label for="title">Issue title <span>*</span></label>
+          <input id="title" required maxlength="100" placeholder="e.g. Water leakage in Block B">
+
+          <div class="form-row">
+            <div><label for="category">Category</label>
+              <select id="category">
+                <option>Plumbing</option><option>Electrical</option>
+                <option>Wi-Fi / IT</option><option>Infrastructure</option>
+                <option>Cleanliness</option><option>Furniture</option>
+                <option>Safety</option><option>Other</option>
+              </select>
+            </div>
+            <div><label for="priority">Priority</label>
+              <select id="priority">
+                <option>Low</option><option selected>Medium</option>
+                <option>High</option><option>Emergency</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div><label for="building">Building / Block</label>
+              <input id="building" placeholder="e.g. Block A" maxlength="80">
+            </div>
+            <div><label for="room">Floor / Room</label>
+              <input id="room" placeholder="e.g. Floor 2, Room 204" maxlength="80">
+            </div>
+          </div>
+
+          <label for="description">Describe the issue <span>*</span></label>
+          <textarea id="description" required maxlength="1500" rows="4"
+            placeholder="Explain what happened and where..."></textarea>
+
+          <label for="photo">Attach a photo (optional)</label>
+          <input id="photo" type="file" accept="image/*">
+
+          <button class="primary-btn" type="submit">✦ Submit Campus Issue <span>→</span></button>
+          <p class="fine-print">Your report will receive a unique ticket ID.</p>
+        </form>
+        <div id="confirmation" class="notice" hidden></div>
+      </article>
+
+      <div class="right-column">
+        <article class="ai-panel" id="assistant">
+          <div class="ai-heading">
+            <div class="ai-logo">✳</div>
+            <span class="ai-status"><i></i> GEMMA 4</span>
+          </div>
+          <p class="section-kicker">YOUR PERSONAL CAMPUS AI</p>
+          <h2>Meet your AI<br>companion.</h2>
+          <p class="ai-description">Need help describing an issue? Ask CampusBuddy for clear reports and practical next steps.</p>
+
+          <div class="suggestions">
+            <button type="button" class="suggestion" data-question="Help me write a clear report about poor Wi-Fi in the library.">↗ Improve my report</button>
+            <button type="button" class="suggestion" data-question="Give me a checklist for reporting a broken classroom fan.">☷ Get a checklist</button>
+          </div>
+
+          <form id="aiForm">
+            <label class="sr-only" for="aiQuestion">Ask CampusBuddy</label>
+            <textarea id="aiQuestion" rows="3" maxlength="2000"
+              placeholder="Ask anything about campus issues..."></textarea>
+            <button class="ai-btn" type="submit">Ask CampusBuddy <span>→</span></button>
+          </form>
+          <div id="aiResponse" class="ai-response" aria-live="polite" hidden></div>
+          <p class="fine-print">AI responses require the Gemma 4 backend to be connected.</p>
+        </article>
+
+        <article class="panel tips-panel">
+          <div class="section-title"><h2>Quick Tips</h2><span>💡</span></div>
+          <div class="tip"><span>01</span><p><strong>Be specific</strong><small>Describe the problem clearly.</small></p></div>
+          <div class="tip"><span>02</span><p><strong>Add the location</strong><small>Help staff find the issue.</small></p></div>
+          <div class="tip"><span>03</span><p><strong>Track progress</strong><small>Check your ticket status.</small></p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel tracker-panel" id="tracker">
+      <div class="section-title tracker-heading">
+        <div><span class="section-kicker">STAY UPDATED</span><h2>Your Issue Tracker</h2>
+        <p>Monitor submitted campus complaints.</p></div>
+        <select id="statusFilter" aria-label="Filter by status">
+          <option value="All">All statuses</option>
+          <option>Pending</option><option>In Progress</option><option>Resolved</option>
+        </select>
+      </div>
+      <div id="issueList" class="issue-list"></div>
+    </section>
+
+    <footer><span>✦ CampusBuddy AI</span><span>Built for a smarter campus · Gemma 4</span></footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
